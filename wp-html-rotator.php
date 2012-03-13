@@ -4,7 +4,7 @@
 Plugin Name: WP HTML Rotator
 Plugin URI: 
 Description: Rotate HTML sections based on the timezone and hour of day.
-Version: 0.0.1-SNAPSHOT
+Version: 0.1.0
 Author: Ariel Coppes and Jason Caluori
 Author URI: 
 */
