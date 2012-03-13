@@ -15,7 +15,8 @@ function html_rotation_section($atts, $content = null) {
 
 	// defines the default function parameter values
 	$default_atts = array( 
-		'visible' => "true", 
+		'visible' => "true",
+		'inverse' => null,  
 		'start' => null,
 		'end' => null,
 	);
@@ -24,6 +25,7 @@ function html_rotation_section($atts, $content = null) {
 	$values = shortcode_atts($default_atts, $atts);
 
 	$visible = $values['visible'];
+	$inverse = $values['inverse'];
 	$start = $values['start'];
 	$end = $values['end'];
 
@@ -59,16 +61,25 @@ function html_rotation_section($atts, $content = null) {
 		echo "end_time: ".date('D, d M Y H:i:s T', $end_time)."<br/>";
 	}
 
-	if ($current_time < $start_time) {
-		if ($DEBUG)
-			return "current time < start time"."<br/>";
-		return null;
-	}
+	if ($inverse == null or $inverse != 'true') {
+		if ($current_time < $start_time) {
+			if ($DEBUG)
+				return "current time < start time"."<br/>";
+			return null;
+		}
 
-	if ($current_time > $end_time) {
-		if ($DEBUG)
-			return "current time > end time"."<br/>";
-		return null;
+		if ($current_time > $end_time) {
+			if ($DEBUG)
+				return "current time > end time"."<br/>";
+			return null;
+		}
+	} else {
+		if ($current_time >= $start_time and $current_time <= $end_time) {
+			if ($DEBUG)
+				return "current time >= start time and current time <= end time"."<br/>";
+			return null;
+		}
+
 	}
 
 	return $content;
