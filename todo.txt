@@ -1,3 +1,2 @@
 * research more about using shortcodes in widgets.
 * in case it is not right to use shortcodes in widgets, create a special widget for this.
-* backend to generate the shortcode
