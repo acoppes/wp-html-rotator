@@ -2,11 +2,11 @@
 
 /*
 Plugin Name: WP HTML Rotator
-Plugin URI: 
+Plugin URI: http://wordpress.org/extend/plugins/wp-html-rotator
 Description: Rotate HTML sections based on the timezone and hour of day.
 Version: 0.1.0
 Author: Ariel Coppes and Jason Caluori
-Author URI: 
+Author URI: http://careers.stackoverflow.com/arielcoppes
 */
 
 function html_rotation_section($atts, $content = null) {
@@ -89,5 +89,22 @@ add_shortcode('rotator', 'html_rotation_section');
 
 add_filter( 'widget_text', 'shortcode_unautop');
 add_filter( 'widget_text', 'do_shortcode');
+
+// Configuration
+
+add_action('admin_menu', 'html_rotator_menu');
+
+function html_rotator_menu() {
+	add_options_page('HTML Rotator Shortcode Generator', 'Rotator generator', 'manage_options', 'wp-html-rotator-identifier', 'html_rotator_generator');
+}
+
+function html_rotator_generator() {
+	if (!current_user_can('manage_options'))  {
+		wp_die( __('You do not have sufficient permissions to access this page.') );
+	}
+	echo '<div class="wrap">';
+	echo '<p>Here is where the form would go if I actually had options.</p>';
+	echo '</div>';
+}
 
 ?>
