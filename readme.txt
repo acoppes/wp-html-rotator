@@ -34,6 +34,14 @@ Both start and end are using the date format specified in http://www.php.net/man
 
 note: Using GMT notation doesn't work in some installations, not sure which php version is required for that to work.
 
+== Configuration == 
+
+The first lines of the plugin contains some global variables to configure the plugin, for example, if you want to disable the generator from the admin -> settings page, among other configurations.
+
+- WP_HTML_ROTATOR_DEBUG: defines if the plugin echoes debug information.
+- WP_HTML_ROTATOR_ENABLE_WIDGETS: enables the shortcode to work on text widgets.
+- WP_HTML_ROTATOR_ENABLE_GENERATOR: enable the shortcode generator to be shown in the admin panel or not.
+
 == Changelog ==
 
 - Added the shortcode with the default parameters.
