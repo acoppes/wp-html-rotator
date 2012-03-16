@@ -30,7 +30,9 @@ Currently, it supports the following parameters:
 
 Both start and end are using the date format specified in http://www.php.net/manual/en/datetime.formats.php . For example, we can specify the timezone of the hour range:
 
-[rotator start="9am GMT-03" end="5pm GMT-03"]...[/rotator]
+[rotator start="9am -0600" end="5pm -0600"]...[/rotator]
+
+note: Using GMT notation doesn't work in some installations, not sure which php version is required for that to work.
 
 == Changelog ==
 
