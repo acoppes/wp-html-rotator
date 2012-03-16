@@ -11,6 +11,20 @@ Author URI:
 
 function html_rotation_section($atts, $content = null) {
 
+	// defines the default function parameter values
+	$default_atts = array( 
+		'visible' => "true", 
+	);
+
+	// merges the default parameters with the current parameters
+	$values = shortcode_atts($default_atts, $atts);
+
+	$visible = $values['visible'];
+
+	if ($visible != "true")
+		return null;
+
+	return $content;
 }
 
 add_shortcode('html_rotation_section', 'html_rotation_section');
