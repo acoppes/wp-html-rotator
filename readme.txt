@@ -7,11 +7,21 @@ Stable tag: 0.1.1
 
 == Description ==
 
-Create HTML sections to be rotated based in the timezone and the hour of day.
+Schedule HTML sections to be shown or not based on a date range using a simple shortcode.
+
+Right now the plug-in is enabled by using the rotator shortcode. For example, To specify we want to show a specific piece of HTML from 9am to 5pm you can use the following code:
+
+[rotator start="9am" end="5pm"]
+<div> 
+   Some custom HTML.
+</div>
+[/rotator]
+
+Where start and end parameters are using the date format specified in http://www.php.net/manual/en/datetime.formats.php, so you can specify more specific dates like showing the HTML section all Tuesday between 10am and 11am, etc. Read the Other Notes section for more information.
 
 == Usage ==
 
-Right now the plugin is enabled by using the shortcode [rotator]. For example, To specify we want to show a specific piece of HTML from 9am to 5pm we do the following code:
+Right now the plug-in is enabled by using the rotator shortcode. For example, To specify we want to show a specific piece of HTML from 9am to 5pm you can use the following code:
 
 [rotator start="9am" end="5pm"]
 <div> 
