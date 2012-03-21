@@ -45,16 +45,23 @@ function html_rotation_section($atts, $content = null) {
 	if ($end == null)
 		return "end attribute not provided";
 
+	$gofs = get_option( 'gmt_offset' ); // get WordPress offset in hours
+	$tz = date_default_timezone_get(); // get current PHP timezone
+
+	date_default_timezone_set('Etc/GMT'.(($gofs < 0)?'+':'').-$gofs); // set the PHP timezone to match WordPress
+
 	$start_time = strtotime($start);
 	$end_time = strtotime($end);
 
 	if ($start_time == -1 or $start_time == FALSE) {
+		date_default_timezone_set($tz); // set the PHP timezone back the way it was
 		if ($WP_HTML_ROTATOR_DEBUG)
 			return "Wrong start attribute"."<br/>";
 		return null;
 	}
 
 	if ($end_time == -1 or $end_time == FALSE) {
+		date_default_timezone_set($tz); // set the PHP timezone back the way it was
 		if ($WP_HTML_ROTATOR_DEBUG == TRUE)
 			return "Wrong end attribute"."<br/>";
 		return null;
@@ -70,18 +77,21 @@ function html_rotation_section($atts, $content = null) {
 
 	if ($inverse == null or $inverse != 'true') {
 		if ($current_time < $start_time) {
+			date_default_timezone_set($tz); // set the PHP timezone back the way it was
 			if ($WP_HTML_ROTATOR_DEBUG)
 				return "current time < start time"."<br/>";
 			return null;
 		}
 
 		if ($current_time > $end_time) {
+			date_default_timezone_set($tz); // set the PHP timezone back the way it was
 			if ($WP_HTML_ROTATOR_DEBUG)
 				return "current time > end time"."<br/>";
 			return null;
 		}
 	} else {
 		if ($current_time >= $start_time and $current_time <= $end_time) {
+			date_default_timezone_set($tz); // set the PHP timezone back the way it was
 			if ($WP_HTML_ROTATOR_DEBUG)
 				return "current time >= start time and current time <= end time"."<br/>";
 			return null;
@@ -89,6 +99,7 @@ function html_rotation_section($atts, $content = null) {
 
 	}
 
+	date_default_timezone_set($tz); // set the PHP timezone back the way it was
 	return $content;
 }
 
@@ -114,7 +125,14 @@ if ($WP_HTML_ROTATOR_ENABLE_GENERATOR) {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
 
+		$gofs = get_option( 'gmt_offset' ); // get WordPress offset in hours
+		$tz = date_default_timezone_get(); // get current PHP timezone
+
+		date_default_timezone_set('Etc/GMT'.(($gofs < 0)?'+':'').-$gofs); // set the PHP timezone to match WordPress
+
 		$current_time = date('Y-m-d g:ia T', time());
+
+		date_default_timezone_set($tz); // set the PHP timezone back the way it was
 
 		?>
 
@@ -145,7 +163,7 @@ if ($WP_HTML_ROTATOR_ENABLE_GENERATOR) {
 		<div id="wp-html-rotator-generator">
 
 		<div class="current-time">
-			Current server time: <? echo $current_time; ?>
+			WordPress server time: <? echo $current_time; ?>
 		</div>
 		<hr />
 
