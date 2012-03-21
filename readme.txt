@@ -56,5 +56,13 @@ The first lines of the plugin contains some global variables to configure the pl
 
 == Changelog ==
 
+0.1.3
+- Changed name Rotator Generator to Schedule Generator
+- Server time is shown in the Schedule Generator 
+
+0.1.2
+- Added more detail in the Description page.
+
+0.1.x
 - Added the shortcode with the default parameters.
 

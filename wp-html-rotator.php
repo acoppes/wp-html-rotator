@@ -4,7 +4,7 @@
 Plugin Name: WP HTML Rotator
 Plugin URI: http://wordpress.org/extend/plugins/wp-html-rotator
 Description: Schedule HTML sections to be shown or not based on a date range.
-Version: 0.1.2
+Version: 0.1.3
 Author: Ariel Coppes and Jason Caluori
 Author URI: http://careers.stackoverflow.com/arielcoppes
 */
@@ -106,7 +106,7 @@ if ($WP_HTML_ROTATOR_ENABLE_GENERATOR) {
 	add_action('admin_menu', 'html_rotator_menu');
 
 	function html_rotator_menu() {
-		add_options_page('HTML Rotator Shortcode Generator', 'Rotator generator', 'manage_options', 'wp-html-rotator-identifier', 'html_rotator_generator');
+		add_options_page('HTML Rotator - Schedule shortcode generator', 'Schedule generator', 'manage_options', 'wp-html-rotator-identifier', 'html_rotator_generator');
 	}
 
 	function html_rotator_generator() {
