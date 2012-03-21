@@ -19,6 +19,8 @@ Right now the plug-in is enabled by using the rotator shortcode. For example, To
 
 Where start and end parameters are using the date format specified in http://www.php.net/manual/en/datetime.formats.php, so you can specify more specific dates like showing the HTML section all Tuesday between 10am and 11am, etc. Read the Other Notes section for more information.
 
+Note: the hour range is server based time and the default timezone is UTC, in other words, it depends on the configured time of the server.
+
 == Usage ==
 
 Right now the plug-in is enabled by using the rotator shortcode. For example, To specify we want to show a specific piece of HTML from 9am to 5pm you can use the following code:

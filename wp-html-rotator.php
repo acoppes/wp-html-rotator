@@ -114,6 +114,8 @@ if ($WP_HTML_ROTATOR_ENABLE_GENERATOR) {
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
 
+		$current_time = date('Y-m-d g:ia T', time());
+
 		?>
 
 		<script type="text/javascript"> 
@@ -141,6 +143,11 @@ if ($WP_HTML_ROTATOR_ENABLE_GENERATOR) {
 		</script>
 
 		<div id="wp-html-rotator-generator">
+
+		<div class="current-time">
+			Current server time: <? echo $current_time; ?>
+		</div>
+		<hr />
 
 		<form>
 
