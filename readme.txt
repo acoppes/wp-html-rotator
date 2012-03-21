@@ -21,6 +21,8 @@ Where start and end parameters are using the date format specified in http://www
 
 Note: the hour range is server based time and the default timezone is UTC, in other words, it depends on the configured time of the server.
 
+There is a page available at "Settings" -> "Schedule generator" in the wp admin console with a basic form which lets you generate the short code configuring different values like start and end times, among others.
+
 == Usage ==
 
 Right now the plug-in is enabled by using the rotator shortcode. For example, To specify we want to show a specific piece of HTML from 9am to 5pm you can use the following code:
@@ -44,7 +46,11 @@ Both start and end are using the date format specified in http://www.php.net/man
 
 [rotator start="9am -0600" end="5pm -0600"]...[/rotator]
 
-note: Using GMT notation doesn't work in some installations, not sure which php version is required for that to work.
+Note: Using GMT notation doesn't work in some installations, not sure which php version is required for that to work.
+
+Note: the hour range is server based time and the default timezone is UTC, in other words, it depends on the configured time of the server.
+
+There is a page available at "Settings" -> "Schedule generator" in the wp admin console with a basic form which lets you generate the short code configuring different values like start and end times, among others.
 
 == Configuration == 
 
